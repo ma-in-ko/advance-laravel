@@ -7,16 +7,14 @@ use  App\Models\Book;
 
 class BookController extends Controller
 {
-    public function index() {
+    public function index(){
         $items = Book::all();
-        return view ('book.index', ['items' =>$items]);
+        return view('book.index', ['items'=>$items]);
     }
-
-    public function add() {
-        return view ('book.add');
+    public function add(){
+        return view('book.add');
     }
-
-    public function create(Request $request) {
+    public function create(Request $request){
         $this->validate($request, Book::$rules);
         $form = $request->all();
         Book::create($form);
